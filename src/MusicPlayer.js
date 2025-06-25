@@ -4,7 +4,7 @@ import './Styles.css';
 const songs = [
   {
     title: "Believer",
-    src: `${process.env.PUBLIC_URL}/Beliver.mp3`,
+    src: "C:\Users\user\Downloads\Beliver (1).jpg",
     cover: `${process.env.PUBLIC_URL}/Beliver.jpg`
   },
   {
