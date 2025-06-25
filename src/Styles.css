@@ -1,7 +1,15 @@
+body {
+  background-image: url("./music.jpg");
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+
 .player-container {
   max-width: 300px;
-  background:rgba(0,0,0,0.2);
-  color: rgb(0, 0, 0);
+  background: rgba(0,0,0,0.2);
+  color: black;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
@@ -35,7 +43,7 @@
   100% { transform: translateX(-100%); }
 }
 
-.seek-slider {
+.seek-bar {
   width: 100%;
   margin: 10px 0;
   appearance: none;
@@ -46,7 +54,8 @@
   cursor: pointer;
 }
 
-.seek-slider::-webkit-slider-thumb {
+.seek-bar::-webkit-slider-thumb,
+.seek-bar::-moz-range-thumb {
   appearance: none;
   height: 14px;
   width: 14px;
@@ -54,15 +63,6 @@
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 0 2px #000;
-}
-
-.seek-slider::-moz-range-thumb {
-  height: 14px;
-  width: 14px;
-  background: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
 }
 
 .time {
