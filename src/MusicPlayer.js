@@ -4,23 +4,23 @@ import './Styles.css';
 const songs = [
   {
     title: "Believer",
-    src: process.env.PUBLIC_URL + "/Beliver.mp3",
-    cover: process.env.PUBLIC_URL + "/Beliver.jpg"
+    src: `${process.env.PUBLIC_URL}/Beliver.mp3`,
+    cover: `${process.env.PUBLIC_URL}/Beliver.jpg`
   },
   {
     title: "Halamathi Habibo",
-    src: process.env.PUBLIC_URL + "/halamathi_habibo.mp3",
-    cover: process.env.PUBLIC_URL + "/hamathi.png"
+    src: `${process.env.PUBLIC_URL}/halamathi_habibo.mp3`,
+    cover: `${process.env.PUBLIC_URL}/hamathi.png`
   },
   {
     title: "Om Deva Deva",
-    src: process.env.PUBLIC_URL + "/Om_deva_deva.mp3",
-    cover: process.env.PUBLIC_URL + "/deva.png"
+    src: `${process.env.PUBLIC_URL}/Om_deva_deva.mp3`,
+    cover: `${process.env.PUBLIC_URL}/deva.png`
   },
   {
     title: "Naatu Naatu",
-    src: process.env.PUBLIC_URL + "/naatu_naatu.mp3",
-    cover: process.env.PUBLIC_URL + "/naatu.png"
+    src: `${process.env.PUBLIC_URL}/naatu_naatu.mp3`,
+    cover: `${process.env.PUBLIC_URL}/naatu.png`
   }
 ];
 
@@ -64,7 +64,12 @@ const MusicPlayer = () => {
 
   return (
     <div className="player-container">
-      <img src={songs[currentSong].cover} className="cover" alt="cover" />
+      <img
+        src={songs[currentSong].cover}
+        className="cover"
+        alt="cover"
+        onError={(e) => { e.target.src = `${process.env.PUBLIC_URL}/fallback.png`; }}
+      />
 
       <div className="scrolling-title">
         <span>{songs[currentSong].title}</span>
