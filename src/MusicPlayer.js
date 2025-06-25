@@ -1,26 +1,26 @@
 import React, { useRef, useState, useEffect } from 'react';
-import './Styles.css'; 
+import './Styles.css';
 
 const songs = [
   {
     title: "Believer",
-    src: "/Beliver.mp3",
-    cover: "/Beliver.jpg"
+    src: process.env.PUBLIC_URL + "/Beliver.mp3",
+    cover: process.env.PUBLIC_URL + "/Beliver.jpg"
   },
   {
     title: "Halamathi Habibo",
-    src: "/halamathi_habibo.mp3",
-    cover: "/hamathi.png"
+    src: process.env.PUBLIC_URL + "/halamathi_habibo.mp3",
+    cover: process.env.PUBLIC_URL + "/hamathi.png"
   },
   {
     title: "Om Deva Deva",
-    src: "/Om_deva_deva.mp3",
-    cover: "/deva.png"
+    src: process.env.PUBLIC_URL + "/Om_deva_deva.mp3",
+    cover: process.env.PUBLIC_URL + "/deva.png"
   },
   {
     title: "Naatu Naatu",
-    src: "/naatu_naatu.mp3",
-    cover: "/naatu.png"
+    src: process.env.PUBLIC_URL + "/naatu_naatu.mp3",
+    cover: process.env.PUBLIC_URL + "/naatu.png"
   }
 ];
 
@@ -40,6 +40,12 @@ const MusicPlayer = () => {
     const audio = audioRef.current;
     const progressPercent = (audio.currentTime / audio.duration) * 100;
     setProgress(progressPercent || 0);
+  };
+
+  const handleSeek = (e) => {
+    const audio = audioRef.current;
+    const newTime = (e.target.value / 100) * audio.duration;
+    audio.currentTime = newTime;
   };
 
   const formatTime = (seconds) => {
@@ -71,12 +77,17 @@ const MusicPlayer = () => {
         onEnded={nextSong}
       />
 
-      <div className="progress-bar">
-        <div className="progress" style={{ width: `${progress}%` }}></div>
-      </div>
+      <input
+        type="range"
+        className="seek-bar"
+        value={progress}
+        onChange={handleSeek}
+        min="0"
+        max="100"
+      />
 
       <div className="time">
-        {formatTime(audioRef.current?.currentTime || 0)}
+        {formatTime(audioRef.current?.currentTime || 0)} / {formatTime(audioRef.current?.duration || 0)}
       </div>
 
       <div className="controls">
