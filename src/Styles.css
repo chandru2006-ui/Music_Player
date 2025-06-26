@@ -1,20 +1,21 @@
 body {
-  background-image: url("./music.jpg");
+  background-image: url("https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/music.jpg");
   background-size: cover;
   background-position: center;
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 .player-container {
-  max-width: 300px;
-  background: rgba(0,0,0,0.2);
-  color: black;
+  max-width: 320px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
   padding: 20px;
   border-radius: 15px;
   text-align: center;
   margin: 40px auto;
-  font-family: Arial, sans-serif;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
 .cover {
@@ -22,7 +23,7 @@ body {
   height: 200px;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .scrolling-title {
@@ -39,8 +40,12 @@ body {
 }
 
 @keyframes scrollText {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .seek-bar {
@@ -54,8 +59,7 @@ body {
   cursor: pointer;
 }
 
-.seek-bar::-webkit-slider-thumb,
-.seek-bar::-moz-range-thumb {
+.seek-bar::-webkit-slider-thumb {
   appearance: none;
   height: 14px;
   width: 14px;
@@ -63,6 +67,15 @@ body {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 0 2px #000;
+}
+
+.seek-bar::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .time {
@@ -77,6 +90,7 @@ body {
   color: white;
   margin: 0 10px;
   cursor: pointer;
+  transition: color 0.3s;
 }
 
 .controls button:hover {
