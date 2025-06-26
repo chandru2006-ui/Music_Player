@@ -1,7 +1,7 @@
 const songs = [
   {
     title: "Believer",
-    src: "",  // 👈 Paste raw MP3 link for Believer here
+    src: "https://github.com/chandru2006-ui/Music_Player/blob/master/public/Beliver.jpg",  // 👈 Paste raw MP3 link for Believer here
     cover: "" // 👈 Paste raw JPG link for Believer here
   },
   {
