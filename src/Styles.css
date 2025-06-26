@@ -1,86 +1,103 @@
+/* 🌌 Background Style */
 body {
-  background-image: url("https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/music.jpg");
+  background-image: url("/Music-background.jpg"); /* ✅ Put this image inside public/ */
   background-size: cover;
   background-position: center;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+/* 🎧 Main Player Container */
 .player-container {
-  max-width: 320px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
+  width: 90%;
+  max-width: 360px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 20px;
   text-align: center;
   margin: 40px auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.3);
 }
 
+/* 🖼️ Cover Image */
 .cover {
-  width: 200px;
-  height: 200px;
-  border-radius: 12px;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 15px;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  margin-bottom: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
+/* 📝 Scrolling Song Title */
 .scrolling-title {
   overflow: hidden;
   white-space: nowrap;
-  margin: 10px 0;
-  font-size: 18px;
+  margin: 15px 0;
+  font-size: 5vw;
   font-weight: bold;
+  color: #00ff88;
+}
+
+@media (min-width: 400px) {
+  .scrolling-title {
+    font-size: 20px;
+  }
 }
 
 .scrolling-title span {
   display: inline-block;
-  animation: scrollText 10s linear infinite;
+  animation: scrollText 8s linear infinite;
 }
 
 @keyframes scrollText {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
+/* 🎚️ Seek Bar */
 .seek-bar {
   width: 100%;
   margin: 10px 0;
   appearance: none;
   height: 6px;
-  background: #4caf50;
+  background: #0dd314;
   border-radius: 3px;
-  outline: none;
   cursor: pointer;
+  outline: none;
 }
 
-.seek-bar::-webkit-slider-thumb {
+.seek-bar::-webkit-slider-thumb,
+.seek-bar::-moz-range-thumb {
   appearance: none;
   height: 14px;
   width: 14px;
-  background: white;
+  background: #fff;
   border-radius: 50%;
-  cursor: pointer;
   box-shadow: 0 0 2px #000;
-}
-
-.seek-bar::-moz-range-thumb {
-  height: 14px;
-  width: 14px;
-  background: white;
-  border: none;
-  border-radius: 50%;
   cursor: pointer;
 }
 
+/* ⏱️ Time Display */
 .time {
   font-size: 14px;
   margin-bottom: 10px;
+  color: #ccc;
+}
+
+/* ▶️ Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 10px 0;
+  flex-wrap: wrap;
 }
 
 .controls button {
@@ -88,24 +105,39 @@ body {
   background: none;
   border: none;
   color: white;
-  margin: 0 10px;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: transform 0.2s, color 0.3s;
 }
 
 .controls button:hover {
   color: #0dd314;
+  transform: scale(1.2);
 }
 
+/* 🔊 Volume Control */
 .volume-control {
   margin-top: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .volume-control input[type="range"] {
-  width: 150px;
+  width: 130px;
   cursor: pointer;
+  accent-color: #0dd314;
+}
+
+/* 📱 Mobile Specific Tweaks */
+@media screen and (max-width: 450px) {
+  .controls button {
+    font-size: 20px;
+    margin: 0 8px;
+  }
+
+  .volume-control input[type="range"] {
+    width: 100px;
+  }
 }

@@ -4,23 +4,23 @@ import './Styles.css';
 const songs = [
   {
     title: "Believer",
-    src: "https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/Beliver.mp3",
-    cover: "https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/Beliver.jpg"
+    src: `${process.env.PUBLIC_URL}/Beliver.mp3`,
+    cover: `${process.env.PUBLIC_URL}/Beliver.jpg`
   },
   {
     title: "Halamathi Habibo",
-    src: "https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/halamathi_habibo.mp3",
-    cover: "https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/hamathi.png"
+    src: `${process.env.PUBLIC_URL}/halamathi_habibo.mp3`,
+    cover: `${process.env.PUBLIC_URL}/hamathi.png`
   },
   {
     title: "Om Deva Deva",
-    src: "https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/Om_deva_deva.mp3",
-    cover: "https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/deva.png"
+    src: `${process.env.PUBLIC_URL}/Om_deva_deva.mp3`,
+    cover: `${process.env.PUBLIC_URL}/deva.png`
   },
   {
     title: "Naatu Naatu",
-    src: "https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/naatu_naatu.mp3",
-    cover: "https://raw.githubusercontent.com/chandru2006-ui/Music_Player/master/public/naatu.png"
+    src: `${process.env.PUBLIC_URL}/naatu_naatu.mp3`,
+    cover: `${process.env.PUBLIC_URL}/naatu.png`
   }
 ];
 
@@ -47,8 +47,10 @@ const MusicPlayer = () => {
 
   const handleSeek = (e) => {
     const audio = audioRef.current;
-    const newTime = (e.target.value / 100) * audio.duration;
-    audio.currentTime = newTime;
+    if (!isNaN(audio.duration) && isFinite(audio.duration)) {
+      const newTime = (e.target.value / 100) * audio.duration;
+      audio.currentTime = newTime;
+    }
   };
 
   const formatTime = (seconds) => {
