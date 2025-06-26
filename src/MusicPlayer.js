@@ -16,7 +16,7 @@ const songs = [
   },
   {
     title: "Naatu Naatu",
-    src: "",  // 👈 Paste raw MP3 link for Naatu Naatu
+    src: "https://github.com/chandru2006-ui/Music_Player/blob/master/public/naatu.png",  // 👈 Paste raw MP3 link for Naatu Naatu
     cover: "" // 👈 Paste raw PNG link for Naatu cover
   }
 ];
