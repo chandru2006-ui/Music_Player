@@ -6,7 +6,7 @@ const songs = [
   },
   {
     title: "Halamathi Habibo",
-    src: "",  // 👈 Paste raw MP3 link for Halamathi Habibo
+    src: "https://github.com/chandru2006-ui/Music_Player/blob/master/public/hamathi.png",  // 👈 Paste raw MP3 link for Halamathi Habibo
     cover: "" // 👈 Paste raw PNG link for Hamathi cover
   },
   {
