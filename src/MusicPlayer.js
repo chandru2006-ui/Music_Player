@@ -11,7 +11,7 @@ const songs = [
   },
   {
     title: "Om Deva Deva",
-    src: "",  // 👈 Paste raw MP3 link for Om Deva Deva
+    src: "https://github.com/chandru2006-ui/Music_Player/blob/master/public/deva.png",  // 👈 Paste raw MP3 link for Om Deva Deva
     cover: "" // 👈 Paste raw PNG link for Deva cover
   },
   {
